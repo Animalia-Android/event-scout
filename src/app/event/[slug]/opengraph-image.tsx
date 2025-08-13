@@ -14,7 +14,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
     (
       <section>
         <h1>{params.slug}</h1>
-        <p>Evento - Browse events around you</p>
+        <p>Event Scout - Browse events around you</p>
       </section>
     )
   );

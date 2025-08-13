@@ -6,9 +6,10 @@ export default function Logo() {
   return (
     <Link href="/">
       <Image
-        src="https://bytegrad.com/course-assets/react-nextjs/evento.png"
-        alt="EVENTO logo"
-        width={53}
+        className="rd-md"
+        src="/eventScout.png"
+        alt="EVENT SCOUT"
+        width={45}
         height={12}
       />
     </Link>
