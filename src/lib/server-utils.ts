@@ -4,6 +4,7 @@ import { unstable_cache } from 'next/cache';
 import { captilize } from './util';
 import prisma from './db';
 import { notFound } from 'next/navigation';
+import { PrismaClient } from '@prisma/client';
 
 export const getEvents = unstable_cache(async (city: string, page = 1) => {
   // const response = await fetch(
@@ -51,14 +52,18 @@ export const getEvent = unstable_cache(async (slug: string) => {
   // );
 
   // const event: EventoEvent = await response.json();
+  console.log('******Fetching event from DB:*****', slug);
 
   const event = await prisma.eventoEvent.findUnique({
     where: {
-      slug: slug,
+      slug,
     },
   });
 
+  console.log('******Fetched event from DB:*****', slug, event);
+
   if (!event) {
+    console.log('******Event not found:*****', slug);
     return notFound();
   }
 
